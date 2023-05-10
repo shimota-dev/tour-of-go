@@ -2,19 +2,17 @@ package main
 
 import (
 	"fmt"
-	"math"
+	"time"
 )
 
-type Vertex struct {
-	X, Y float64
-}
-
-func (v Vertex) Abs() float64 {
-	return math.Sqrt(v.X*v.X + v.Y*v.Y)
+func say(s string) {
+	for i := 0; i < 5; i++ {
+		time.Sleep(100 * time.Millisecond)
+		fmt.Println(s)
+	}
 }
 
 func main() {
-	v := Vertex{3, 4}
-	fmt.Println(v.Abs())
-	fmt.Println()
+	go say("world")
+	say("hello")
 }
